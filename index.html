@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ElectroBlocks | Aprendizaje de Circuitos Interactivos</title>
+    <style>
+        /* --- VARIABLES DE MARCA --- */
+        :root {
+            --azul-marca: #1A5276;
+            --rojo-marca: #C0392B;
+            --oscuro: #2C3E50;
+            --claro: #F8F9FA;
+            --blanco: #FFFFFF;
+        }
+
+        /* --- ESTILOS GENERALES --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--claro);
+            color: var(--oscuro);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- MENÚ DE NAVEGACIÓN --- */
+        header {
+            background-color: var(--blanco);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .logo-img {
+            height: 45px;
+            width: auto;
+            border-radius: 8px;
+        }
+
+        .logo-placeholder {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--azul-marca);
+        }
+
+        .logo-placeholder span {
+            color: var(--rojo-marca);
+            display: inline-block;
+            animation: latido 2s infinite;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--oscuro);
+            margin-left: 20px;
+            font-weight: 600;
+            transition: color 0.3s, transform 0.3s;
+            display: inline-block;
+        }
+
+        nav a:hover {
+            color: var(--azul-marca);
+            transform: translateY(-2px);
+        }
+
+        /* --- SECCIÓN PRINCIPAL (HERO) - ACTUALIZADA A DOS COLUMNAS --- */
+        .hero {
+            background: linear-gradient(135deg, #fdfefe 0%, #eaf2f8 100%);
+            padding: 80px 0;
+            border-bottom: 3px solid var(--azul-marca);
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+        }
+
+        .hero-text {
+            flex: 1;
+            text-align: left;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            color: var(--azul-marca);
+            margin-bottom: 20px;
+            line-height: 1.1;
+            opacity: 0;
+            animation: entrarDesdeAbajo 0.8s ease-out 0.2s forwards;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            color: #566573;
+            opacity: 0;
+            animation: entrarDesdeAbajo 0.8s ease-out 0.4s forwards;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--rojo-marca);
+            color: var(--blanco);
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(192, 57, 43, 0.3);
+            transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
+            opacity: 0;
+            animation: entrarDesdeAbajo 0.8s ease-out 0.6s forwards;
+        }
+
+        .cta-button:hover {
+            background-color: #922B21;
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 6px 12px rgba(192, 57, 43, 0.4);
+        }
+
+        /* Estilos para la imagen grande del logo en el hero */
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 450px; /* Controla el tamaño máximo del logo aquí */
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            opacity: 0;
+            animation: entrarDesdeDerecha 0.8s ease-out 0.5s forwards;
+            transition: transform 0.4s;
+        }
+
+        .hero-image img:hover {
+            transform: scale(1.03); /* Pequeño zoom al pasar el ratón */
+        }
+
+        /* Adaptación para celulares */
+        @media (max-width: 850px) {
+            .hero-content {
+                flex-direction: column-reverse; /* Pone la imagen arriba y el texto abajo */
+                text-align: center;
+            }
+            .hero-text {
+                text-align: center;
+            }
+            .hero h1 {
+                font-size: 38px;
+            }
+        }
+
+        /* --- SECCIÓN PRODUCTO / CARACTERÍSTICAS --- */
+        .features {
+            padding: 80px 0;
+            background-color: var(--blanco);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: var(--rojo-marca);
+            margin: 10px auto 0 auto;
+            transition: width 0.4s ease;
+        }
+
+        .section-title:hover::after {
+            width: 120px;
+        }
+
+        .grid-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background-color: var(--claro);
+            padding: 30px;
+            border-radius: 8px;
+            border-top: 4px solid var(--azul-marca);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 15px 25px rgba(0,0,0,0.1);
+        }
+
+        .feature-card h3 {
+            margin-bottom: 15px;
+            color: var(--azul-marca);
+            transition: color 0.3s;
+        }
+
+        .feature-card:hover h3 {
+            color: var(--rojo-marca);
+        }
+
+        /* --- SECCIÓN EQUIPO (NUESTROS CARNETS) --- */
+        .team {
+            padding: 80px 0;
+            background-color: var(--claro);
+        }
+
+        .grid-team {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .member-card {
+            background-color: var(--blanco);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 15px rgba(0,0,0,0.05);
+            border: 1px solid #E5E7E9;
+            text-align: center;
+            padding-bottom: 20px;
+            transition: transform 0.4s, box-shadow 0.4s;
+        }
+
+        .member-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+        }
+
+        .card-header-sim {
+            background: linear-gradient(45deg, var(--azul-marca), var(--rojo-marca));
+            height: 15px;
+            width: 100%;
+        }
+
+        .member-img {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 25px auto 15px auto;
+            border: 4px solid var(--blanco);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.5s ease, border-color 0.3s ease;
+        }
+
+        .member-card:hover .member-img {
+            transform: scale(1.1) rotate(3deg);
+            border-color: var(--claro);
+        }
+
+        .member-card h3 {
+            font-size: 18px;
+            color: var(--oscuro);
+            padding: 0 10px;
+        }
+
+        .member-role {
+            color: var(--rojo-marca);
+            font-weight: bold;
+            font-size: 14px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .member-id {
+            display: inline-block;
+            background-color: #EAECEE;
+            color: #7F8C8D;
+            padding: 2px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        .member-card:hover .member-id {
+            background-color: var(--azul-marca);
+            color: var(--blanco);
+        }
+
+        /* --- PIE DE PÁGINA --- */
+        footer {
+            background-color: var(--oscuro);
+            color: var(--blanco);
+            text-align: center;
+            padding: 30px 0;
+            font-size: 14px;
+        }
+
+        /* --- DEFINICIÓN DE KEYFRAMES (ANIMACIONES) --- */
+        @keyframes entrarDesdeAbajo {
+            0% {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes entrarDesdeDerecha {
+            0% {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes latido {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- MENÚ DE NAVEGACIÓN -->
+    <header>
+        <div class="nav-container">
+            <!-- LOGO PEQUEÑO DEL MENÚ -->
+            <a href="#inicio" class="logo-container">
+                <img src="imagenes/LogoElectroBlocks.jpeg" alt="Logo ElectroBlocks" class="logo-img">
+                <div class="logo-placeholder">Electro<span>Blocks</span></div>
+            </a>
+            <nav>
+                <a href="#inicio">Inicio</a>
+                <a href="#producto">Producto</a>
+                <a href="#equipo">Equipo</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- BLOQUE DE BIENVENIDA (HERO) - ACTUALIZADO CON IMAGEN -->
+    <section class="hero" id="inicio">
+        <div class="container hero-content">
+            <!-- Columna Izquierda: Texto -->
+            <div class="hero-text">
+                <h1>Crea Circuitos de Forma Interactiva</h1>
+                <p>ElectroBlocks es la plataforma de bloques didácticos diseñada para que estudiantes, niños y entusiastas aprendan electrónica real sin enredos de cables, de forma segura, visual y divertida.</p>
+                <a href="#producto" class="cta-button">Descubrir Bloques</a>
+            </div>
+            <!-- Columna Derecha: Imagen Grande -->
+            <div class="hero-image">
+                <img src="imagenes/LogoElectroBlocks.jpeg" alt="Logo ElectroBlocks Grande">
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN DE CARACTERÍSTICAS -->
+    <section class="features" id="producto">
+        <div class="container">
+            <h2 class="section-title">¿Cómo funciona nuestro sistema?</h2>
+            <div class="grid-features">
+                <div class="feature-card">
+                    <h3>Conexión Magnética</h3>
+                    <p>Los bloques se unen firmemente mediante imanes integrados que transmiten energía y señales de datos de forma segura sin peligro de cortocircuito.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Componentes Reales</h3>
+                    <p>Cada bloque representa de forma física e ilustrada un componente electrónico real: resistencias, baterías, capacitores y pantallas digitales.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Aprendizaje Guiado</h3>
+                    <p>Diseñado bajo una metodología interactiva que plantea retos lógicos y experimentos que aumentan la complejidad paso a paso.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN DEL EQUIPO DE FUNDADORES -->
+    <section class="team" id="equipo">
+        <div class="container">
+            <h2 class="section-title">El Equipo Fundador</h2>
+            <div class="grid-team">
+                
+                <!-- INTEGRANTE 1: IRVING -->
+                <div class="member-card">
+                    <div class="card-header-sim"></div>
+                    <img src="imagenes/Irving.jpeg" alt="Irving Benjamin" class="member-img">
+                    <h3>Irving Benjamin Cifuentes Cifuentes</h3>
+                    <p class="member-role">Director General</p>
+                    <span class="member-id">ID: ING-001</span>
+                </div>
+
+                <!-- INTEGRANTE 2: JOSE LUIS -->
+                <div class="member-card">
+                    <div class="card-header-sim"></div>
+                    <img src="imagenes/JoseLuis.jpeg" alt="Jose Luis Zapata" class="member-img">
+                    <h3>Jose Luis Zapata Dias</h3>
+                    <p class="member-role">Ingeniero de Hardware</p>
+                    <span class="member-id">ID: NEG-007</span>
+                </div>
+
+                <!-- INTEGRANTE 3: ALLAN KENNY -->
+                <div class="member-card">
+                    <div class="card-header-sim"></div>
+                    <img src="imagenes/Allan.jpeg" alt="Allan Kenny Chiguil" class="member-img">
+                    <h3>Allan Kenny Chiguil Zanches</h3>
+                    <p class="member-role">Director de Marketing y Ventas</p>
+                    <span class="member-id">ID: CHI-004</span>
+                </div>
+
+                <!-- INTEGRANTE 4: BYRON JOSUÉ -->
+                <div class="member-card">
+                    <div class="card-header-sim"></div>
+                    <img src="imagenes/Byron.jpeg" alt="Byron Josue de Leon" class="member-img">
+                    <h3>Byron Josue de Leon Lopez</h3>
+                    <p class="member-role">Director de Diseño</p>
+                    <span class="member-id">ID: DLN-003</span>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- PIE DE PÁGINA -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 ElectroBlocks. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
