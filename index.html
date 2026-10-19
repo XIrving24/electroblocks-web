@@ -14,7 +14,7 @@
             --claro: #F8F9FA;
             --blanco: #FFFFFF;
         }
- 
+
         /* --- ESTILOS GENERALES --- */
         * {
             margin: 0;
@@ -22,24 +22,24 @@
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
- 
+
         html {
             scroll-behavior: smooth;
         }
- 
+
         body {
             background-color: var(--claro);
             color: var(--oscuro);
             line-height: 1.6;
             overflow-x: hidden;
         }
- 
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
- 
+
         /* --- MENÚ DE NAVEGACIÓN --- */
         header {
             background-color: var(--blanco);
@@ -48,7 +48,7 @@
             top: 0;
             z-index: 100;
         }
- 
+
         .nav-container {
             display: flex;
             justify-content: space-between;
@@ -57,7 +57,7 @@
             max-width: 1200px;
             margin: 0 auto;
         }
- 
+
         .logo-container {
             display: flex;
             align-items: center;
@@ -65,25 +65,25 @@
             text-decoration: none;
             cursor: pointer;
         }
- 
+
         .logo-img {
             height: 45px;
             width: auto;
             border-radius: 8px;
         }
- 
+
         .logo-placeholder {
             font-size: 24px;
             font-weight: bold;
             color: var(--negro-marca);
         }
- 
+
         .logo-placeholder span {
             color: var(--amarillo-marca);
             display: inline-block;
             animation: latido 2s infinite;
         }
- 
+
         nav a {
             text-decoration: none;
             color: var(--oscuro);
@@ -92,31 +92,31 @@
             transition: color 0.3s, transform 0.3s;
             display: inline-block;
         }
- 
+
         nav a:hover {
             color: var(--amarillo-oscuro);
             transform: translateY(-2px);
         }
- 
+
         /* --- SECCIÓN PRINCIPAL (HERO) --- */
         .hero {
             background: linear-gradient(135deg, #ffffff 0%, #fef9e7 100%);
             padding: 80px 0;
             border-bottom: 3px solid var(--negro-marca);
         }
- 
+
         .hero-content {
             display: flex;
             align-items: center;
             justify-content: space-between;
             gap: 50px;
         }
- 
+
         .hero-text {
             flex: 1;
             text-align: left;
         }
- 
+
         .hero h1 {
             font-size: 48px;
             color: var(--negro-marca);
@@ -125,7 +125,7 @@
             opacity: 0;
             animation: entrarDesdeAbajo 0.8s ease-out 0.2s forwards;
         }
- 
+
         .hero p {
             font-size: 20px;
             margin-bottom: 30px;
@@ -133,7 +133,7 @@
             opacity: 0;
             animation: entrarDesdeAbajo 0.8s ease-out 0.4s forwards;
         }
- 
+
         .cta-button {
             display: inline-block;
             background-color: var(--amarillo-marca);
@@ -147,20 +147,20 @@
             opacity: 0;
             animation: entrarDesdeAbajo 0.8s ease-out 0.6s forwards;
         }
- 
+
         .cta-button:hover {
             background-color: var(--amarillo-oscuro);
             transform: translateY(-3px) scale(1.05);
             box-shadow: 0 6px 12px rgba(241, 196, 15, 0.4);
         }
- 
+
         .hero-image {
             flex: 1;
             display: flex;
             justify-content: center;
             align-items: center;
         }
- 
+
         .hero-image img {
             width: 100%;
             max-width: 450px;
@@ -170,11 +170,11 @@
             animation: entrarDesdeDerecha 0.8s ease-out 0.5s forwards;
             transition: transform 0.4s;
         }
- 
+
         .hero-image img:hover {
             transform: scale(1.03);
         }
- 
+
         @media (max-width: 850px) {
             .hero-content {
                 flex-direction: column-reverse;
@@ -191,20 +191,20 @@
                 font-size: 14px;
             }
         }
- 
+
         /* --- SECCIÓN DE CARACTERÍSTICAS --- */
         .features {
             padding: 80px 0;
             background-color: var(--blanco);
         }
- 
+
         .section-title {
             text-align: center;
             font-size: 36px;
             margin-bottom: 50px;
             position: relative;
         }
- 
+
         .section-title::after {
             content: '';
             display: block;
@@ -214,17 +214,17 @@
             margin: 10px auto 0 auto;
             transition: width 0.4s ease;
         }
- 
+
         .section-title:hover::after {
             width: 120px;
         }
- 
+
         .grid-features {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
         }
- 
+
         .feature-card {
             background-color: var(--claro);
             padding: 30px;
@@ -234,22 +234,22 @@
             text-align: center;
             transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s;
         }
- 
+
         .feature-card:hover {
             transform: translateY(-12px);
             box-shadow: 0 15px 25px rgba(0,0,0,0.1);
         }
- 
+
         .feature-card h3 {
             margin-bottom: 15px;
             color: var(--negro-marca);
             transition: color 0.3s;
         }
- 
+
         .feature-card:hover h3 {
             color: var(--amarillo-oscuro);
         }
- 
+
         /* --- NUEVA SECCIÓN: DETALLE DEL PRODUCTO Y PROTOTIPO --- */
         .product-showcase {
             padding: 80px 0;
@@ -257,32 +257,32 @@
             border-top: 2px solid #E5E7E9;
             border-bottom: 2px solid #E5E7E9;
         }
- 
+
         .product-grid {
             display: flex;
             align-items: center;
             gap: 50px;
             flex-wrap: wrap;
         }
- 
+
         .product-info {
             flex: 1;
             min-width: 300px;
         }
- 
+
         .product-info h3 {
             font-size: 28px;
             color: var(--negro-marca);
             margin-bottom: 20px;
         }
- 
+
         .product-info p {
             font-size: 16px;
             color: #566573;
             margin-bottom: 15px;
             line-height: 1.7;
         }
- 
+
         .product-prototype-box {
             flex: 1;
             min-width: 300px;
@@ -293,7 +293,7 @@
             text-align: center;
             border: 2px dashed var(--amarillo-marca);
         }
- 
+
         .product-prototype-box img {
             width: 100%;
             max-width: 400px;
@@ -301,7 +301,7 @@
             border-radius: 10px;
             object-fit: cover;
         }
- 
+
         .prototype-caption {
             margin-top: 12px;
             font-weight: bold;
@@ -310,7 +310,7 @@
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
- 
+
         /* =====================================================
            NUEVA SECCIÓN: ANIMACIÓN 3D DE LOS ELECTROBLOQUES
            (todos los estilos van dentro de #animacion para no
@@ -323,26 +323,26 @@
             border-top: 2px solid #E5E7E9;
             border-bottom: 2px solid #E5E7E9;
         }
- 
+
         #animacion .section-title {
             color: var(--negro-marca);
             margin-bottom: 15px;
         }
- 
+
         #animacion .anim-sub {
             text-align: center;
             color: #566573;
             margin-bottom: 30px;
             font-size: 16px;
         }
- 
+
         #animacion .eb-row {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 10px;
             margin-top: 20px;
         }
- 
+
         #animacion .eb-cell {
             height: 300px;
             display: flex;
@@ -350,7 +350,7 @@
             align-items: center;
             justify-content: flex-end;
         }
- 
+
         #animacion .scene {
             width: 120px;
             height: 170px;
@@ -360,7 +360,7 @@
             align-items: flex-end;
             justify-content: center;
         }
- 
+
         #animacion .tilt {
             transform-style: preserve-3d;
             transform: rotateX(-24deg);
@@ -369,7 +369,7 @@
             position: relative;
             top: -30px;
         }
- 
+
         #animacion .spin {
             transform-style: preserve-3d;
             width: 120px;
@@ -378,15 +378,15 @@
             animation: ebSpin 14s linear infinite;
             animation-delay: var(--d, 0s);
         }
- 
+
         #animacion .eb-cell:hover .spin,
         #animacion .eb-cell:hover .pivot,
         #animacion .eb-cell:hover .led {
             animation-play-state: paused;
         }
- 
+
         @keyframes ebSpin { to { transform: rotateY(360deg); } }
- 
+
         #animacion .f {
             position: absolute;
             width: 120px;
@@ -409,7 +409,7 @@
             background: #111;
             border-radius: 0 0 4px 4px;
         }
- 
+
         #animacion .pivot {
             position: absolute;
             left: 0; top: 0;
@@ -419,13 +419,13 @@
             animation: ebOpen 8s ease-in-out infinite;
             animation-delay: var(--d, 0s);
         }
- 
+
         @keyframes ebOpen {
             0%, 28%  { transform: translateZ(-60px) rotateX(0deg); }
             42%, 68% { transform: translateZ(-60px) rotateX(108deg); }
             82%, 100%{ transform: translateZ(-60px) rotateX(0deg); }
         }
- 
+
         #animacion .lid,
         #animacion .lidu {
             position: absolute;
@@ -439,7 +439,7 @@
         }
         #animacion .lid  { background: linear-gradient(#1c1c1c, #0a0a0a); border: 2px solid #FFD21A; }
         #animacion .lidu { background: #1a1a1a; transform: rotateX(90deg) rotateY(180deg); border: 2px solid #444; }
- 
+
         #animacion .t {
             position: absolute;
             top: 7px; left: 0; right: 0;
@@ -474,7 +474,7 @@
         #animacion .sm { position: absolute; bottom: 35px; font-size: 8px; color: #bbb; font-weight: 700; }
         #animacion .s1 { left: 11px; }
         #animacion .s2 { right: 8px; color: #FFD21A; }
- 
+
         #animacion .led {
             width: 30px; height: 30px;
             border-radius: 50%;
@@ -486,7 +486,7 @@
             0%, 28%, 82%, 100% { box-shadow: 0 0 22px 8px #ffd21aaa; }
             42%, 68%           { box-shadow: 0 0 4px 1px #ffd21a55; }
         }
- 
+
         #animacion .res {
             width: 62px; height: 18px;
             border-radius: 9px;
@@ -507,23 +507,23 @@
             background: radial-gradient(circle at 50% 50%, #000 0 5px, #1f1f1f 6px 100%);
             border: 3px solid #444;
         }
- 
+
         #animacion .lab { font-weight: 700; text-align: center; color: var(--negro-marca); }
         #animacion .lab small { display: block; color: #566573; font-weight: 400; }
         #animacion .hint { margin-top: 22px; font-size: 14px; color: #566573; text-align: center; }
- 
+
         /* --- SECCIÓN DE ARTÍCULOS --- */
         .articles-section {
             padding: 80px 0;
             background-color: var(--claro); 
         }
- 
+
         .grid-articles {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 30px;
         }
- 
+
         .article-card {
             background-color: var(--blanco);
             border-radius: 12px;
@@ -534,13 +534,13 @@
             display: flex;
             flex-direction: column;
         }
- 
+
         .article-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0,0,0,0.1);
             border-left-color: var(--amarillo-marca);
         }
- 
+
         .article-tag {
             font-size: 11px;
             background-color: var(--amarillo-marca);
@@ -553,44 +553,44 @@
             letter-spacing: 1px;
             align-self: flex-start;
         }
- 
+
         .article-card h3 {
             color: var(--oscuro);
             font-size: 20px;
             margin-bottom: 15px;
             line-height: 1.3;
         }
- 
+
         .article-card p {
             color: #566573;
             font-size: 15px;
             margin-bottom: 15px;
             flex-grow: 1; 
         }
- 
+
         .article-card ul {
             margin-left: 20px;
             margin-bottom: 15px;
             color: #566573;
             font-size: 14px;
         }
- 
+
         .article-card li {
             margin-bottom: 8px;
         }
- 
+
         /* --- SECCIÓN EQUIPO --- */
         .team {
             padding: 80px 0;
             background-color: var(--blanco);
         }
- 
+
         .grid-team {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 30px;
         }
- 
+
         .member-card {
             background-color: var(--claro);
             border-radius: 12px;
@@ -601,18 +601,18 @@
             padding-bottom: 20px;
             transition: transform 0.4s, box-shadow 0.4s;
         }
- 
+
         .member-card:hover {
             transform: translateY(-8px) scale(1.02);
             box-shadow: 0 15px 30px rgba(0,0,0,0.12);
         }
- 
+
         .card-header-sim {
             background: linear-gradient(45deg, var(--negro-marca), var(--amarillo-marca));
             height: 15px;
             width: 100%;
         }
- 
+
         .member-img {
             width: 130px;
             height: 130px;
@@ -623,18 +623,18 @@
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
             transition: transform 0.5s ease, border-color 0.3s ease;
         }
- 
+
         .member-card:hover .member-img {
             transform: scale(1.1) rotate(3deg);
             border-color: var(--amarillo-marca);
         }
- 
+
         .member-card h3 {
             font-size: 18px;
             color: var(--oscuro);
             padding: 0 10px;
         }
- 
+
         .member-role {
             color: var(--amarillo-oscuro);
             font-weight: bold;
@@ -642,7 +642,7 @@
             margin-bottom: 10px;
             text-transform: uppercase;
         }
- 
+
         .member-id {
             display: inline-block;
             background-color: #EAECEE;
@@ -658,7 +658,7 @@
             background-color: var(--negro-marca);
             color: var(--amarillo-marca);
         }
- 
+
         /* --- PIE DE PÁGINA --- */
         footer {
             background-color: var(--negro-marca);
@@ -667,18 +667,18 @@
             padding: 30px 0;
             font-size: 14px;
         }
- 
+
         /* --- DEFINICIÓN DE KEYFRAMES --- */
         @keyframes entrarDesdeAbajo {
             0% { opacity: 0; transform: translateY(40px); }
             100% { opacity: 1; transform: translateY(0); }
         }
- 
+
         @keyframes entrarDesdeDerecha {
             0% { opacity: 0; transform: translateX(50px); }
             100% { opacity: 1; transform: translateX(0); }
         }
- 
+
         @keyframes latido {
             0% { transform: scale(1); }
             50% { transform: scale(1.05); }
@@ -687,7 +687,7 @@
     </style>
 </head>
 <body>
- 
+
     <!-- MENÚ DE NAVEGACIÓN -->
     <header>
         <div class="nav-container">
@@ -705,7 +705,7 @@
             </nav>
         </div>
     </header>
- 
+
     <!-- BLOQUE DE BIENVENIDA -->
     <section class="hero" id="inicio">
         <div class="container hero-content">
@@ -719,7 +719,7 @@
             </div>
         </div>
     </section>
- 
+
     <!-- SECCIÓN DE CARACTERÍSTICAS -->
     <section class="features" id="producto">
         <div class="container">
@@ -740,7 +740,7 @@
             </div>
         </div>
     </section>
- 
+
     <!-- NUEVA ZONA: EL PRODUCTO ELECTROBLOCK Y SU PROTOTIPO -->
     <section class="product-showcase" id="electroblock-info">
         <div class="container">
@@ -759,7 +759,7 @@
             </div>
         </div>
     </section>
- 
+
     <!-- NUEVA SECCIÓN: ANIMACIÓN 3D DE LOS ELECTROBLOQUES -->
     <section id="animacion">
         <div class="container">
@@ -769,7 +769,7 @@
             <p class="hint">Cuerpo amarillo · tapa negra · bisagra encajable · bornes banana de 4 mm</p>
         </div>
     </section>
- 
+
     <!-- SECCIÓN DE ARTÍCULOS -->
     <section class="articles-section" id="articulos">
         <div class="container">
@@ -781,19 +781,19 @@
                     <h3>Introducción y Propuesta de Valor</h3>
                     <p>Aprender electrónica suele evocar imágenes de protoboards saturados de cables dispersos, componentes diminutos difíciles de manipular y el riesgo constante de dañar un circuito por una mala conexión. Para los estudiantes y principiantes, esta barrera técnica puede convertir la curiosidad en frustración en cuestión de minutos.</p>
                 </article>
- 
+
                 <article class="article-card">
                     <span class="article-tag">Guía Práctica</span>
                     <h3>Guía Práctica e Inspiración</h3>
                     <p>Uno de los mayores atractivos de ElectroBlocks es que las posibilidades crecen a la par de tu imaginación. No necesitas conocimientos previos para empezar a crear tu primer invento con cubos y borneras.</p>
                 </article>
- 
+
                 <article class="article-card">
                     <span class="article-tag">Educación</span>
                     <h3>Enfoque Educativo y Metodología STEAM</h3>
                     <p>En un mundo cada vez más digitalizado, la educación busca constantemente métodos para preparar a las nuevas generaciones frente al futuro. La metodología STEAM (Ciencia, Tecnología, Ingeniería, Arte y Matemáticas) se consolida como estándar.</p>
                 </article>
- 
+
                 <article class="article-card">
                     <span class="article-tag">Sobre el Producto</span>
                     <h3>Conexiones claras: Circuitos modulares con ElectroBlocks</h3>
@@ -804,23 +804,23 @@
                         <li><strong>Cero complicaciones:</strong> Enlaza los cubos mediante cableado externo y comprende el flujo eléctrico.</li>
                     </ul>
                 </article>
- 
+
                 <article class="article-card">
                     <span class="article-tag">Sector Educativo</span>
                     <h3>La nueva forma de enseñar electricidad en los colegios</h3>
                     <p>Enseñar ciencias y tecnología es un gran reto, pero los estudiantes aprenden mucho más rápido cuando pueden tocar, experimentar y ensamblar sistemas físicos reales con seguridad.</p>
                 </article>
- 
+
                 <article class="article-card">
                     <span class="article-tag">Sobre la Empresa</span>
                     <h3>ElectroBlocks S.A.: Innovando la educación tecnológica</h3>
                     <p>En ElectroBlocks S.A., creemos que cualquier persona puede entender la tecnología si se le enseña de la manera correcta. Somos una empresa comprometida con transformar la manera en que se enseña electricidad.</p>
                 </article>
- 
+
             </div>
         </div>
     </section>
- 
+
     <!-- SECCIÓN DEL EQUIPO -->
     <section class="team" id="equipo">
         <div class="container">
@@ -857,14 +857,14 @@
             </div>
         </div>
     </section>
- 
+
     <!-- PIE DE PÁGINA -->
     <footer>
         <div class="container">
             <p>&copy; 2026 ElectroBlocks. Todos los derechos reservados.</p>
         </div>
     </footer>
- 
+
     <!-- SCRIPT DE LA ANIMACIÓN 3D -->
     <script>
     (function () {
@@ -887,7 +887,6 @@
         document.getElementById("eb-row").innerHTML = h;
     })();
     </script>
- 
+
 </body>
 </html>
- 
