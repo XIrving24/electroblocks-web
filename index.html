@@ -311,6 +311,207 @@
             letter-spacing: 0.5px;
         }
 
+        /* =====================================================
+           NUEVA SECCIÓN: ANIMACIÓN 3D DE LOS ELECTROBLOQUES
+           (todos los estilos van dentro de #animacion para no
+           chocar con el resto de la página)
+           ===================================================== */
+        #animacion {
+            padding: 80px 0;
+            background-color: var(--blanco);
+            color: var(--negro-marca);
+            border-top: 2px solid #E5E7E9;
+            border-bottom: 2px solid #E5E7E9;
+        }
+
+        #animacion .section-title {
+            color: var(--negro-marca);
+            margin-bottom: 15px;
+        }
+
+        #animacion .anim-sub {
+            text-align: center;
+            color: #566573;
+            margin-bottom: 30px;
+            font-size: 16px;
+        }
+
+        #animacion .eb-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        #animacion .eb-cell {
+            height: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+        }
+
+        #animacion .scene {
+            width: 120px;
+            height: 170px;
+            perspective: 800px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+        }
+
+        #animacion .tilt {
+            transform-style: preserve-3d;
+            transform: rotateX(-24deg);
+            width: 120px;
+            height: 90px;
+            position: relative;
+            top: -30px;
+        }
+
+        #animacion .spin {
+            transform-style: preserve-3d;
+            width: 120px;
+            height: 90px;
+            position: relative;
+            animation: ebSpin 14s linear infinite;
+            animation-delay: var(--d, 0s);
+        }
+
+        #animacion .eb-cell:hover .spin,
+        #animacion .eb-cell:hover .pivot,
+        #animacion .eb-cell:hover .led {
+            animation-play-state: paused;
+        }
+
+        @keyframes ebSpin { to { transform: rotateY(360deg); } }
+
+        #animacion .f {
+            position: absolute;
+            width: 120px;
+            height: 90px;
+            background: #FFD21A;
+            border: 2px solid #b89400;
+            box-sizing: border-box;
+        }
+        #animacion .front  { transform: translateZ(60px); }
+        #animacion .back   { transform: rotateY(180deg) translateZ(60px); background: #e0b400; }
+        #animacion .right  { transform: rotateY(90deg) translateZ(60px); background: #f0c300; }
+        #animacion .left   { transform: rotateY(-90deg) translateZ(60px); background: #d6aa00; }
+        #animacion .bottom { height: 120px; top: -15px; transform: rotateX(-90deg) translateZ(45px); background: #8a6f00; }
+        #animacion .inside { height: 120px; top: -15px; transform: rotateX(90deg) translateZ(38px); background: #2b2200; border: 0; }
+        #animacion .front::after {
+            content: "";
+            position: absolute;
+            left: 44px; right: 44px; top: -2px;
+            height: 7px;
+            background: #111;
+            border-radius: 0 0 4px 4px;
+        }
+
+        #animacion .pivot {
+            position: absolute;
+            left: 0; top: 0;
+            width: 120px; height: 0;
+            transform-style: preserve-3d;
+            transform: translateZ(-60px) rotateX(0deg);
+            animation: ebOpen 8s ease-in-out infinite;
+            animation-delay: var(--d, 0s);
+        }
+
+        @keyframes ebOpen {
+            0%, 28%  { transform: translateZ(-60px) rotateX(0deg); }
+            42%, 68% { transform: translateZ(-60px) rotateX(108deg); }
+            82%, 100%{ transform: translateZ(-60px) rotateX(0deg); }
+        }
+
+        #animacion .lid,
+        #animacion .lidu {
+            position: absolute;
+            left: 0; top: 0;
+            width: 120px; height: 120px;
+            transform-origin: 50% 0;
+            transform: rotateX(90deg);
+            backface-visibility: hidden;
+            border-radius: 6px;
+            box-sizing: border-box;
+        }
+        #animacion .lid  { background: linear-gradient(#1c1c1c, #0a0a0a); border: 2px solid #FFD21A; }
+        #animacion .lidu { background: #1a1a1a; transform: rotateX(90deg) rotateY(180deg); border: 2px solid #444; }
+
+        #animacion .t {
+            position: absolute;
+            top: 7px; left: 0; right: 0;
+            font-weight: 800;
+            font-size: 15px;
+            color: #FFD21A;
+            letter-spacing: 1px;
+            text-align: center;
+        }
+        #animacion .c {
+            position: absolute;
+            left: 50%; top: 50%;
+            transform: translate(-50%, -52%);
+        }
+        #animacion .jack {
+            position: absolute;
+            bottom: 9px;
+            width: 24px; height: 24px;
+            border-radius: 50%;
+            box-sizing: border-box;
+        }
+        #animacion .jack::after {
+            content: "";
+            position: absolute;
+            inset: 8px;
+            border-radius: 50%;
+            background: #000;
+            opacity: .8;
+        }
+        #animacion .j1 { left: 12px;  background: radial-gradient(#444, #1b1b1b);       border: 3px solid #888; }
+        #animacion .j2 { right: 12px; background: radial-gradient(#ffe766, #FFD21A);    border: 3px solid #fff3a8; }
+        #animacion .sm { position: absolute; bottom: 35px; font-size: 8px; color: #bbb; font-weight: 700; }
+        #animacion .s1 { left: 11px; }
+        #animacion .s2 { right: 8px; color: #FFD21A; }
+
+        #animacion .led {
+            width: 30px; height: 30px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 35% 30%, #fff7b0, #FFD21A 55%, #b88a00);
+            animation: ebGlow 8s ease-in-out infinite;
+            animation-delay: var(--d, 0s);
+        }
+        @keyframes ebGlow {
+            0%, 28%, 82%, 100% { box-shadow: 0 0 22px 8px #ffd21aaa; }
+            42%, 68%           { box-shadow: 0 0 4px 1px #ffd21a55; }
+        }
+
+        #animacion .res {
+            width: 62px; height: 18px;
+            border-radius: 9px;
+            background: #d9b98a;
+            position: relative;
+            box-shadow: -14px 0 0 -6px #999, 14px 0 0 -6px #999;
+        }
+        #animacion .res i { position: absolute; top: 0; bottom: 0; width: 6px; }
+        #animacion .btn {
+            width: 34px; height: 34px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 35% 30%, #666, #111);
+            border: 3px solid #333;
+        }
+        #animacion .buz {
+            width: 40px; height: 40px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 50% 50%, #000 0 5px, #1f1f1f 6px 100%);
+            border: 3px solid #444;
+        }
+
+        #animacion .lab { font-weight: 700; text-align: center; color: var(--negro-marca); }
+        #animacion .lab small { display: block; color: #566573; font-weight: 400; }
+        #animacion .hint { margin-top: 22px; font-size: 14px; color: #566573; text-align: center; }
+
         /* --- SECCIÓN DE ARTÍCULOS --- */
         .articles-section {
             padding: 80px 0;
@@ -498,6 +699,7 @@
                 <a href="#inicio">Inicio</a>
                 <a href="#producto">Características</a>
                 <a href="#electroblock-info">ElectroBlock</a>
+                <a href="#animacion">Animación</a>
                 <a href="#articulos">Artículos</a> 
                 <a href="#equipo">Equipo</a>
             </nav>
@@ -555,6 +757,16 @@
                     <p class="prototype-caption">Vista del Prototipo Físico</p>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- NUEVA SECCIÓN: ANIMACIÓN 3D DE LOS ELECTROBLOQUES -->
+    <section id="animacion">
+        <div class="container">
+            <h2 class="section-title">Nuestros ElectroBlocks en acción</h2>
+            <p class="anim-sub">Los bloques giran, abren la tapa y se encienden. Pasa el dedo o el mouse sobre uno para pausarlo.</p>
+            <div class="eb-row" id="eb-row"></div>
+            <p class="hint">Cuerpo amarillo · tapa negra · bisagra encajable · bornes banana de 4 mm</p>
         </div>
     </section>
 
@@ -652,6 +864,29 @@
             <p>&copy; 2026 ElectroBlocks. Todos los derechos reservados.</p>
         </div>
     </footer>
+
+    <!-- SCRIPT DE LA ANIMACIÓN 3D -->
+    <script>
+    (function () {
+        var items = [
+            { n: "LED", d: "Se enciende con 15V máx", c: '<div class="led"></div>' },
+            { n: "RESISTENCIA", d: "Limita la corriente", c: '<div class="res"><i style="left:16px;background:#c0392b"></i><i style="left:27px;background:#111"></i><i style="left:38px;background:#e67e22"></i></div>' },
+            { n: "PULSADOR", d: "Cierra el circuito al presionar", c: '<div class="btn"></div>' },
+            { n: "ZUMBADOR", d: "Suena con la corriente", c: '<div class="buz"></div>' }
+        ];
+        var h = "";
+        items.forEach(function (it, i) {
+            var d = (-i * 1.6) + "s";
+            h += '<div class="eb-cell" style="--d:' + d + '"><div class="scene"><div class="tilt"><div class="spin">' +
+                '<div class="f front"></div><div class="f back"></div><div class="f left"></div><div class="f right"></div>' +
+                '<div class="f bottom"></div><div class="f inside"></div>' +
+                '<div class="pivot"><div class="lid"><div class="t">' + it.n.slice(0, 9) + '</div><div class="c">' + it.c + '</div>' +
+                '<div class="sm s1">GND</div><div class="sm s2">+</div><div class="jack j1"></div><div class="jack j2"></div></div><div class="lidu"></div></div>' +
+                '</div></div></div><div class="lab">' + it.n + '<small>' + it.d + '</small></div></div>';
+        });
+        document.getElementById("eb-row").innerHTML = h;
+    })();
+    </script>
 
 </body>
 </html>
